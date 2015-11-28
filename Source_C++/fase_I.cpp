@@ -97,7 +97,7 @@ void exportData()
 {
   for(list<terminalCandidato>::iterator it = terminalCandidato.begin(); it != terminalCandidato.end(); ++it)
   {
-    data->setFoiAberto(it->getInstanceName(), esta_aberto_terminal_candidato[it->getIndex()].get(GRB_DoubleAttr_X) > 0);
+    data->setFoiAberto(it->getInstanceName(), esta_aberto_terminal_candidato[it->getIndex()].get(GRB_DoubleAttr_X));
     for(list<poloAbastecimento>::iterator it2 = poloAbastecimento.begin(); it2 != poloAbastecimento.end(); ++it2)
     {
       data->setFracaoDemanda(it->getInstanceName(), it2->getInstanceName(), fracao_demanda_terminal_candidato_polo_abastecimento[it->getIndex()][it2->getIndex()].get(GRB_DoubleAttr_X));

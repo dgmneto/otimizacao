@@ -11,9 +11,9 @@ fase_I::fase_I(int qtd_polo_abastecimento, int qtd_polo_suprimento,
   this->qtd_polo_suprimento = qtd_polo_suprimento;
   this->qtd_terminal_candidato = qtd_terminal_candidato;
 
-  poloAbastecimento = new list<poloAbastecimento *>();
-  poloSuprimento = new list<poloSuprimento *>();
-  terminalCandidato = new list<terminalCandidato *>();
+  poloAbastecimento = list<poloAbastecimento *>();
+  poloSuprimento = list<poloSuprimento *>();
+  terminalCandidato = list<terminalCandidato *>();
 
   this->data = data;
 
@@ -21,8 +21,7 @@ fase_I::fase_I(int qtd_polo_abastecimento, int qtd_polo_suprimento,
   model->update();
   fracao_demanda_terminal_candidato_polo_abastecimento = new GRBVal *[qtd_terminal_candidato];
   for(int i = 0; i < qtd_terminal_candidato; i++)
-    fracao_demanda_terminal_candidato_polo_abastecimento[i] = model->addVars
-    (
+    fracao_demanda_terminal_candidato_polo_abastecimento[i] = model->addVars(
       0,
       1,
       NULL,
@@ -72,6 +71,7 @@ void fase_I::loadData()
 
 void fase_I::loadConstraints()
 {
+  model->update();
   for(list<poloAbastecimento>::iterator it = poloAbastecimento.begin(); it != poloAbastecimento.end(); ++it)
   {
     GRBLinExpr constraint = 0;
@@ -93,7 +93,7 @@ void fase_I::solve()
   model->optimize();
 }
 
-void exportData()
+void fase_I::exportData()
 {
   for(list<terminalCandidato>::iterator it = terminalCandidato.begin(); it != terminalCandidato.end(); ++it)
   {

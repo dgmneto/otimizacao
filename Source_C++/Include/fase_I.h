@@ -17,7 +17,7 @@ private:
   list<polo *> poloSuprimento;
   list<terminalCandidato *> terminalCandidato;
 
-  //multi-sets decision variables
+  //decision variables
   GRBVar *esta_aberto_terminal_candidato;
   GRBVar * *fracao_demanda_terminal_candidato_polo_abastecimento;
 
@@ -34,7 +34,8 @@ public:
   void addPoloSuprimento(polo *poloSuprimento);
   void loadData();
   void loadConstraints();
-  void optimize();
+  void solve();
+  void exportData();
 }
 
 #endif

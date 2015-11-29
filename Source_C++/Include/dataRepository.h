@@ -16,7 +16,7 @@ public:
   double getDistancia(string terminalCandidato, string poloAbastecimento);
   void setDistancia(string terminalCandidato, string poloAbastecimento, double value);
   double getFoiAberto(string terminalCandidato);
-  void setFoiAberto(string terminalCandidato, double value);
+  void setFoiAbertoTerminal(string terminalCandidato, double value);
   double getFracaoDemanda(string terminalCandidato, string poloAbastecimento);
   void setFracaoDemanda(string terminalCandidato, string poloAbastecimento, double value);
 private:
@@ -24,7 +24,7 @@ private:
   dataStruct *demanda;
   dataStruct *custoTransporte;
   dataStruct *distancia;
-  dataStruct *foiAberto;
+  dataStruct *foiAbertoTerminal;
   dataStruct *fracaoDemanda;
 }
 #endif

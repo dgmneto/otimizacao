@@ -73,11 +73,11 @@ double dataRepository::getFoiAberto(string terminalCandidato)
   string[0] = terminalCandidato;
   return foiAberto->get(index);
 }
-void dataRepository::setFoiAberto(string terminalCandidato, double value)
+void dataRepository::setFoiAbertoTerminal(string terminalCandidato, double value)
 {
   string *index = new string[1];
   string[0] = terminalCandidato;
-  foiAberto->set(index, value);
+  foiAbertoTerminal->set(index, value);
 }
 double dataRepository::getFracaoDemanda(string terminalCandidato, string poloAbastecimento)
 {

@@ -2,23 +2,25 @@
 #define DATAREPOSITORY_H
 
 #include <dataStruct.h>
+#include <string>
 
 class dataRepository
 {
 public:
   dataRepository();
   double getCustoImplantacao(string poloAbastecimento);
-  void setCustoImplantacao(string poloAbastecimento, double value);
   double getDemanda(string poloAbastecimento);
-  void setDemanda(string poloAbastecimento, double value);
   double getCustoTransporte(string terminalCandidato, string poloAbastecimento);
-  void setCustoTransporte(string terminalCandidato, string poloAbastecimento, double value);
   double getDistancia(string terminalCandidato, string poloAbastecimento);
-  void setDistancia(string terminalCandidato, string poloAbastecimento, double value);
-  double getFoiAberto(string terminalCandidato);
+  double getFoiAbertoTerminal(string terminalCandidato);
   void setFoiAbertoTerminal(string terminalCandidato, double value);
   double getFracaoDemanda(string terminalCandidato, string poloAbastecimento);
   void setFracaoDemanda(string terminalCandidato, string poloAbastecimento, double value);
+  void loadFase_II();
+  double getCustoAbertura(string from, string to);
+  double getCustoFluxo(string from, string to);
+  double getFluxoMaximo(string from, string to);
+
 private:
   dataStruct *custoImplantacao;
   dataStruct *demanda;
@@ -26,5 +28,9 @@ private:
   dataStruct *distancia;
   dataStruct *foiAbertoTerminal;
   dataStruct *fracaoDemanda;
-}
+
+  dataStruct *custoAbertura;
+  dataStruct *custoFluxo;
+  dataStruct *fluxoMaximo;
+};
 #endif

@@ -1,5 +1,9 @@
 #ifndef CANAL_H
 #define CANAL_H
+
+#include <polo.h>
+#include <string.h>
+
 class canal
 {
 public:
@@ -13,5 +17,5 @@ public:
 private:
   int index;
   polo *from, *to;
-}
+};
 #endif

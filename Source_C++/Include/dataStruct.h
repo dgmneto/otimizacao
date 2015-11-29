@@ -1,17 +1,24 @@
 #ifndef DATASTRUCT_H
 #define DATASTRUCT_H
+#include <string>
+
+using namespace std;
+
 class dataStruct
 {
 public:
-  dataStruct(const int size);
-  dataStruct(string *index, const int size);
-  dataStruct(String *index, double value, const int size);
+  dataStruct(int size);
+  dataStruct(string *index, int size);
+  dataStruct(string *index, double value,  int size);
   double get(string *name);
-  void set(string *name, double value)
+  double get();
+  void set(string *name, double value);
+  dataStruct *next(int dir);
+  string getIndex(int i);
 private:
-  const int size;
+  int size;
   string *index;
-  dataStruct * *next;
+  dataStruct * *nextPointer;
   double value;
-}
+};
 #endif

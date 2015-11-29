@@ -24,6 +24,7 @@ polo *canal::getFrom()
 void canal::setFrom(polo *from)
 {
   this->from = from;
+}
 
 polo *canal::getTo()
 {

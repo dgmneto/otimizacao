@@ -12,5 +12,5 @@ public:
 private:
   int index;
   polo *reference;
-}
+};
 #endif

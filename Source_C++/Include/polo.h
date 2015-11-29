@@ -1,5 +1,9 @@
 #ifndef POLO_H
 #define POLO_H
+#include <string>
+
+using namespace std;
+
 class polo
 {
 public:
@@ -12,5 +16,5 @@ private:
   int index;
   string instanceName;
   bool terminalCandidato;
-}
+};
 #endif

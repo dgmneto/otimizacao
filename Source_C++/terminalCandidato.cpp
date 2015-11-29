@@ -1,17 +1,16 @@
-#include terminalCandidato.h
+#include <terminalCandidato.h>
 
-terminalCandidato::terminalCandidato(int index, polo *reference)
+terminalCandidato::terminalCandidato(polo *reference)
 {
-  this->index = index;
   this->reference = reference;
 }
 
-int getIndex()
+int terminalCandidato::getIndex()
 {
   return index;
 }
 
-void setIndex(int index)
+void terminalCandidato::setIndex(int index)
 {
   this->index = index;
 }

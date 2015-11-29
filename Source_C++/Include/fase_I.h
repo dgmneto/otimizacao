@@ -2,8 +2,7 @@
 #define FASE_I_H
 
 #include "gurobi_c++.h"
-#include <poloAbastecimento.h>
-#include <poloSuprimento.h>
+#include <polo.h>
 #include <terminalCandidato.h>
 #include <dataRepository.h>
 #include <list>
@@ -15,7 +14,7 @@ private:
   int qtd_polo_abastecimento, qtd_polo_suprimento, qtd_terminal_candidato;
   list<polo *> poloAbastecimento;
   list<polo *> poloSuprimento;
-  list<terminalCandidato *> terminalCandidato;
+  list<terminalCandidato *> terminaisCandidatos;
 
   //decision variables
   GRBVar *esta_aberto_terminal_candidato;
@@ -36,6 +35,6 @@ public:
   void loadConstraints();
   void solve();
   void exportData();
-}
+};
 
 #endif

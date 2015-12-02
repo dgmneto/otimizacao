@@ -10,6 +10,7 @@ public:
   dataStruct(int size);
   dataStruct(string *index, int size);
   dataStruct(string *index, double value,  int size);
+  ~dataStruct();
   double get(string *name);
   double get();
   void set(string *name, double value);

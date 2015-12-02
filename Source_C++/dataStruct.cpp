@@ -1,6 +1,6 @@
 #include <dataStruct.h>
 
-dataStruct::dataStruct(int size)
+dataStruct::dataStruct(const int size)
 {
   this->size = size;
   index = NULL;
@@ -10,9 +10,13 @@ dataStruct::dataStruct(int size)
     nextPointer[i] = NULL;
 }
 
-dataStruct::dataStruct(string *index, int size)
+dataStruct::dataStruct(string *index, const int size)
 {
-  this->index = index;
+  this->index = new string[size];
+  for(int i = 0; i < size; i++)
+  {
+    this->index[i] = index[i];
+  }
   this->size = size;
   value = 0;
   nextPointer = new dataStruct *[size];
@@ -20,9 +24,13 @@ dataStruct::dataStruct(string *index, int size)
     nextPointer[i] = NULL;
 }
 
-dataStruct::dataStruct(string *index, double value, int size)
+dataStruct::dataStruct(string *index, double value, const int size)
 {
-  this->index = index;
+  this->index = new string[size];
+  for(int i = 0; i < size; i++)
+  {
+    this->index[i] = index[i];
+  }
   this->value = value;
   this->size = size;
   nextPointer = new dataStruct *[size];
@@ -30,12 +38,19 @@ dataStruct::dataStruct(string *index, double value, int size)
     nextPointer[i] = NULL;
 }
 
+dataStruct::~dataStruct()
+{
+  delete[] index;
+  for(int i = 0; i < size; i++)
+    delete nextPointer[i];
+  delete[] nextPointer;
+}
+
 double dataStruct::get(string *index)
 {
   for(int i = 0; i < size; i++)
   {
     if(this->index[i] == index[i]) continue;
-    if(nextPointer[i] == NULL) throw 0;
     return nextPointer[i]->get(index);
   }
   return value;
@@ -48,7 +63,7 @@ double dataStruct::get()
 
 void dataStruct::set(string *index, double value)
 {
-  if(index != NULL)
+  if(this->index != NULL)
   {
     for(int i = 0; i < size; i++)
     {
@@ -60,7 +75,11 @@ void dataStruct::set(string *index, double value)
   }
   else
   {
-    this->index = index;
+    this->index = new string[size];
+    for(int i = 0; i < size; i++)
+    {
+      this->index[i] = index[i];
+    }
   }
   this->value = value;
 }

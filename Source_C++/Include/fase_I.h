@@ -29,12 +29,14 @@ private:
 public:
   fase_I(int qtd_polo_abastecimento, int qtd_polo_suprimento,
     int qtd_terminal_candidato, dataRepository* data);
+  ~fase_I();
   void addPoloAbastecimento(polo *poloAbastecimento);
   void addPoloSuprimento(polo *poloSuprimento);
   void loadData();
   void loadConstraints();
   void solve();
   void exportData();
+  void tempPrint();
 };
 
 #endif

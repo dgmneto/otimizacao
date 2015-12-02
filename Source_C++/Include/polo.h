@@ -12,6 +12,7 @@ public:
   int getIndex();
   void setIndex(int index);
   bool isTerminalCandidato();
+  void setTerminalCandidato(bool terminalCandidato);
 private:
   int index;
   string instanceName;

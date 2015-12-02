@@ -9,18 +9,18 @@
 
 class fase_II
 {
-public:
+private:
   //sets
   int qtd_polo_abastecimento_terminal, qtd_polo_suprimento,
-    qtd_polo_abastecimento_terminal;
+    qtd_polo_suprimento_terminal;
 
   vector<polo *> poloAbastecimentoTerminal;
   vector<polo *> poloSuprimento;
   vector<polo *> poloSuprimentoTerminal;
 
-  vector<polo *> polo;
+  vector<polo *> polos;
   vector<polo *> terminal;
-  vector<canal *> canal;
+  vector<canal *> canais;
 
   //decision variables
   GRBVar *esta_aberto_canal;
@@ -28,13 +28,13 @@ public:
 
   //gurobi stuff
   GRBEnv *environment;
-  GRBEnv *model;
+  GRBModel *model;
 
   //data
   dataRepository *data;
-private:
-  fase_I(int qtd_polo_abastecimento_terminal, int qtd_polo_suprimento,
-    dataRepository* data);
+public:
+  fase_II(int qtd_polo_abastecimento_terminal, int qtd_polo_suprimento,
+    int qtd_polo_suprimento_terminal, dataRepository* data);
   void addPoloAbastecimentoTerminal(polo *poloAbastecimentoTerminal);
   void addPoloSuprimento(polo *poloSuprimento);
   void addPoloSuprimentoTerminal(polo *poloSuprimentoTerminal);
@@ -42,5 +42,5 @@ private:
   void loadConstraints();
   void solve();
   void exportData();
-}
+};
 #endif

@@ -25,3 +25,8 @@ bool polo::isTerminalCandidato()
 {
   return terminalCandidato;
 }
+
+void polo::setTerminalCandidato(bool terminalCandidato)
+{
+  this->terminalCandidato = terminalCandidato;
+}

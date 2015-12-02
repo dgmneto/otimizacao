@@ -8,6 +8,8 @@ class dataRepository
 {
 public:
   dataRepository();
+  ~dataRepository();
+  void loadFase_I();
   double getCustoImplantacao(string poloAbastecimento);
   double getDemanda(string poloAbastecimento);
   double getCustoTransporte(string terminalCandidato, string poloAbastecimento);
@@ -20,8 +22,12 @@ public:
   double getCustoAbertura(string from, string to);
   double getCustoFluxo(string from, string to);
   double getFluxoMaximo(string from, string to);
+  void setFoiAbertoDuto(string from, string to, double value);
+  void setFluxoCanal(string from, string to, double value);
 
 private:
+  string *poloAbastecimento, *poloSuprimento, *terminalCandidato;
+  int a, s, t;
   dataStruct *custoImplantacao;
   dataStruct *demanda;
   dataStruct *custoTransporte;
@@ -32,5 +38,7 @@ private:
   dataStruct *custoAbertura;
   dataStruct *custoFluxo;
   dataStruct *fluxoMaximo;
+  dataStruct *foiAbertoDuto;
+  dataStruct *fluxoCanal;
 };
 #endif
